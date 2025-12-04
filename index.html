@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNC Platform - Investor Presentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1a73e8;
+            --secondary-blue: #0d47a1;
+            --accent-teal: #00bcd4;
+            --success-green: #4caf50;
+            --light-gray: #f5f7fa;
+            --dark-gray: #202124;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --ease-premium: cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-gray);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
+        }
+
+        .slide-container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+            z-index: 2;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-blue);
+            animation: fadeInDown 0.8s var(--ease-premium);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-teal);
+            border-radius: 2px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s var(--ease-premium);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.8s var(--ease-premium);
+        }
+
+        .animate-fadeInDown {
+            animation: fadeInDown 0.8s var(--ease-premium);
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s var(--ease-premium);
+        }
+
+        .animate-fadeInLeft {
+            animation: fadeInLeft 0.8s var(--ease-premium);
+        }
+
+        .animate-fadeInRight {
+            animation: fadeInRight 0.8s var(--ease-premium);
+        }
+
+        .animate-delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .animate-delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .animate-delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        /* Icons */
+        .icon-large {
+            font-size: 5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-teal);
+            margin-bottom: 1rem;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 0.8s var(--ease-premium) forwards;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            margin-top: 1rem;
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .card:nth-child(4) {
+            animation-delay: 0.7s;
+        }
+
+        /* Progress bars */
+        .progress-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 1.5rem auto;
+            text-align: left;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-bar {
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-teal));
+            border-radius: 10px;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Status indicators */
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 0.5rem;
+        }
+
+        .status-completed {
+            background-color: rgba(76, 175, 80, 0.2);
+            color: var(--success-green);
+            border: 1px solid var(--success-green);
+        }
+
+        .status-in-progress {
+            background-color: rgba(26, 115, 232, 0.2);
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            background: var(--secondary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-accent {
+            background: var(--accent-teal);
+        }
+
+        .btn-accent:hover {
+            background: #0097a7;
+        }
+
+        /* Footer navigation */
+        .navigation {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Background elements */
+        .bg-element {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .bg-1 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(26, 115, 232, 0.1) 0%, rgba(0, 188, 212, 0.1) 100%);
+            top: -100px;
+            right: -100px;
+        }
+
+        .bg-2 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(26, 115, 232, 0.1) 0%, rgba(0, 188, 212, 0.1) 100%);
+            bottom: -50px;
+            left: -50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .navigation {
+                bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Slide 1: Title -->
+    <section class="slide">
+        <div class="bg-element bg-1"></div>
+        <div class="bg-element bg-2"></div>
+        <div class="slide-container">
+            <h1 class="animate-fadeInDown">CNC Design Platform</h1>
+            <p class="subtitle animate-fadeInUp animate-delay-1">Democratizing Digital Manufacturing for the Modern Era
+            </p>
+            <p class="animate-fadeIn animate-delay-2">Revolutionizing how creators, makers, and small businesses
+                approach precision manufacturing</p>
+            <div class="icon-large animate-fadeInUp animate-delay-3">
+                <i class="fas fa-industry"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 2: The Problem -->
+    <section class="slide">
+        <div class="slide-container">
+            <h2>The Challenge</h2>
+            <p>Traditional CNC manufacturing faces significant barriers that limit accessibility for creators and small
+                businesses</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Cost Prohibitive</h3>
+                    <p>Enterprise-grade CNC systems cost tens of thousands of dollars, making them inaccessible to small
+                        businesses and individual creators</p>
+                </div>
+
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-lock"></i>
+                    </div>
+                    <h3>Expertise Required</h3>
+                    <p>Complex workflows require specialized training in CAD/CAM software and machining techniques</p>
+                </div>
+
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Limited Resources</h3>
+                    <p>Access to quality design libraries and templates is restricted and expensive</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: Our Solution -->
+    <section class="slide">
+        <div class="slide-container">
+            <h2>Our Vision</h2>
+            <p>An integrated platform combining affordable open-source hardware with intuitive AI-powered software</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Open-Source Hardware</h3>
+                    <p>Cost-effective CNC machines designed for accessibility without compromising on precision</p>
+                </div>
+
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Intuitive Software</h3>
+                    <p>User-friendly design tools that simplify the transition from concept to production</p>
+                </div>
+
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Powered Customization</h3>
+                    <p>Smart algorithms that enable rapid customization of existing designs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Current Status -->
+    <section class="slide">
+        <div class="slide-container">
+            <h2>Current Progress</h2>
+            <p>We've made substantial progress toward our vision with key milestones achieved</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>CNC Machine</h3>
+                    <span class="status-badge status-completed">COMPLETED</span>
+                    <p>Fully functional prototype built and proof-of-concept validated</p>
+                </div>
+
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Software Core</h3>
+                    <span class="status-badge status-completed">COMPLETED</span>
+                    <p>Basic functionality implemented with design editor and G-code generation</p>
+                </div>
+
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Design Library</h3>
+                    <span class="status-badge status-completed">1 LAKH DESIGNS</span>
+                    <p>Raw library of 100,000+ CNC-ready designs compiled</p>
+                </div>
+            </div>
+
+            <div class="progress-container animate-fadeInUp animate-delay-3">
+                <div class="progress-header">
+                    <span>Overall Development Progress</span>
+                    <span>65%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 65%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Future Roadmap -->
+    <section class="slide">
+        <div class="slide-container">
+            <h2>Roadmap Ahead</h2>
+            <p>Our strategic plan to unlock the full potential of the platform</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Library Search & Import</h3>
+                    <span class="status-badge status-in-progress">PLANNED</span>
+                    <p>Advanced search functionality to discover and import designs from our extensive library</p>
+                </div>
+
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3>Design Customization</h3>
+                    <span class="status-badge status-in-progress">PLANNED</span>
+                    <p>Tools to easily modify imported designs with parametric adjustments</p>
+                </div>
+
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>3D Visualization</h3>
+                    <span class="status-badge status-in-progress">PLANNED</span>
+                    <p>Real-time 3D rendering of designs for enhanced visualization and validation</p>
+                </div>
+            </div>
+
+            <div class="progress-container animate-fadeInUp animate-delay-1">
+                <div class="progress-header">
+                    <span>Roadmap Completion</span>
+                    <span>35%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 35%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Market Opportunity -->
+    <section class="slide">
+        <div class="slide-container">
+            <h2>Market Potential</h2>
+            <p>Expansive market opportunity driven by creator economy growth and manufacturing democratization</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>$194 Billion Market</h3>
+                    <p>Global CNC machine market projected to reach $194B by 2035 with 10.5% CAGR</p>
+                </div>
+
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Creator Economy Boom</h3>
+                    <p>23.3% annual growth in creator economy ($253B → $2T+ by 2035)</p>
+                </div>
+
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Untapped Potential</h3>
+                    <p>Over 60% of manufacturing software market remains underserved by accessible solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: Competitive Advantages -->
+    <section class="slide">
+        <div class="slide-container">
+            <h2>Competitive Advantages</h2>
+            <h3>Why We'll Win</h3>
+            <p>Differentiated advantages that position us for market leadership</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Fully Integrated</h3>
+                    <p>Seamless hardware-software ecosystem unlike fragmented competitors</p>
+                </div>
+
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock-open"></i>
+                    </div>
+                    <h3>Open Source</h3>
+                    <p>Community-driven innovation with transparency and extensibility</p>
+                </div>
+
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <h3>10x More Affordable</h3>
+                    <p>Accessible pricing democratizes precision manufacturing</p>
+                </div>
+
+                <div class="card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI-Native</h3>
+                    <p>Intelligent automation reduces expertise barriers and accelerates workflows</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: Call to Action -->
+    <section class="slide">
+        <div class="slide-container">
+            <h2>Join Our Journey</h2>
+            <p>Be part of revolutionizing digital manufacturing for the next generation of creators</p>
+
+            <div class="icon-large animate-pulse">
+                <i class="fas fa-handshake"></i>
+            </div>
+
+            <p>We're seeking strategic partners and investors who share our vision of democratizing precision
+                manufacturing</p>
+
+            <div>
+                <a href="#" class="btn">Schedule a Demo</a>
+                <a href="#" class="btn btn-accent">Investment Opportunity</a>
+            </div>
+
+            <p style="margin-top: 2rem; font-size: 1rem;">
+                <i class="fas fa-envelope"></i> makjavaprogrammer@gmail.com &nbsp;&nbsp;|&nbsp;&nbsp;
+                <i class="fas fa-phone"></i> 8801446657
+            </p>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <button class="nav-btn" id="nextBtn">
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+
+    <script>
+        // Simple slide navigation with animation control
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        // Show slide with proper animation handling
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach((slide, i) => {
+                slide.style.display = 'none';
+            });
+
+            // Show current slide
+            if (slides[index]) {
+                slides[index].style.display = 'flex';
+                currentSlide = index;
+
+                // Update button visibility
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+
+                if (prevBtn) prevBtn.style.display = index === 0 ? 'none' : 'flex';
+                if (nextBtn) nextBtn.style.display = index === totalSlides - 1 ? 'none' : 'flex';
+
+                // Reset animations by removing and re-adding animation classes
+                const animatedElements = slides[index].querySelectorAll('[class*="animate-"]');
+                animatedElements.forEach(el => {
+                    // Get all animation classes
+                    const animationClasses = [];
+                    el.className.split(' ').forEach(cls => {
+                        if (cls.startsWith('animate-')) {
+                            animationClasses.push(cls);
+                        }
+                    });
+
+                    // Remove animation classes
+                    animationClasses.forEach(cls => el.classList.remove(cls));
+
+                    // Force reflow
+                    void el.offsetHeight;
+
+                    // Re-add animation classes after a small delay
+                    setTimeout(() => {
+                        animationClasses.forEach(cls => el.classList.add(cls));
+                    }, 10);
+                });
+            }
+        }
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            }
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                if (currentSlide < totalSlides - 1) {
+                    showSlide(currentSlide + 1);
+                }
+            } else if (e.key === 'ArrowLeft') {
+                if (currentSlide > 0) {
+                    showSlide(currentSlide - 1);
+                }
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+
+</html>
